@@ -7,8 +7,23 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div class="title">Please draw your Signature</div>
+  <ion-row [ngClass]="{'drawing-active': isDrawing}">
+    <ion-col></ion-col>
+    <ion-col>
+      <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+    </ion-col>
+    <ion-col></ion-col>
+ 
+  </ion-row>
+  <button ion-button full color="danger" (click)="clearPad()">Clear</button>
+  <button ion-button full color="secondary" (click)="savePad()">Save</button>
+ 
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col width-80>
+      <img [src]="signature"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 </ion-content>
