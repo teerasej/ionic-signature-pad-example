@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +23,7 @@ export class HomePage {
     'penColor': '#666a73'
   };
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public storage: Storage) {
 
   }
 
@@ -42,4 +43,17 @@ export class HomePage {
     this.signaturePad.clear();
   }
 
+  savePad(){
+    this.signature = this.signaturePad.toDataURL();
+    this.storage.set('savedSignature', this.signature);
+    alert('Pad saved');
+  }
+
+  loadPad(){
+    this.storage.get('savedSignature').then((data) => {
+     	this.signature = data;
+    });
+  }
+
 }
+
