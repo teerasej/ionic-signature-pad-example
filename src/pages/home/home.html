@@ -11,18 +11,21 @@
   <ion-row [ngClass]="{'drawing-active': isDrawing}">
     <ion-col></ion-col>
     <ion-col>
-      <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+      <!-- Signature pad -->
+
     </ion-col>
     <ion-col></ion-col>
  
   </ion-row>
   <button ion-button full color="danger" (click)="clearPad()">Clear</button>
   <button ion-button full color="secondary" (click)="savePad()">Save</button>
+  <button ion-button full color="secondary" (click)="loadPad()">Load</button>
  
   <ion-row>
     <ion-col></ion-col>
     <ion-col width-80>
-      <img [src]="signature"/>
+      <!-- Bind signature property to [src] here -->
+      <img />
     </ion-col>
     <ion-col></ion-col>
   </ion-row>

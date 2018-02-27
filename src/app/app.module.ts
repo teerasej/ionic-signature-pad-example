@@ -7,7 +7,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { SignaturePadModule } from 'angular2-signaturepad';
+// npm install angular2-signaturepad --save
+// import { SignaturePadModule } from 'angular2-signaturepad';
+// https://github.com/szimek/signature_pad
+
+// npm install @ionic/storage --save
+// https://github.com/ionic-team/ionic-storage
 
 @NgModule({
   declarations: [
@@ -16,7 +21,6 @@ import { SignaturePadModule } from 'angular2-signaturepad';
   ],
   imports: [
     BrowserModule,
-    SignaturePadModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
